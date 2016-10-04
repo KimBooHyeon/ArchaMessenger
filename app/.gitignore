@@ -1,3 +1,9 @@
-/build
-# Intellij project files
+.gradle
+local.properties
+.idea/
+.DS_Store
+build
+captures
 *.iml
+app/build
+*.apk
