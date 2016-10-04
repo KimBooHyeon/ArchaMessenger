@@ -1,4 +1,4 @@
-*.iml
+
 .gradle
 /local.properties
 /.idea/workspace.xml
@@ -6,3 +6,8 @@
 .DS_Store
 /build
 /captures
+# intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private LinearLayout layout_navigation;
 
-    private Button btn_menu;
+    private Button btn_menu, btn_close_drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         });
 
         btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_close_drawer = (Button)findViewById(R.id.btn_close_drawer);
         btn_menu.setOnClickListener(this);
+        btn_close_drawer.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         switch (v.getId()){
             case R.id.btn_menu:
                 dlDrawer.openDrawer(layout_navigation);
+                break;
+            case R.id.btn_close_drawer:
+                dlDrawer.closeDrawer(layout_navigation);
                 break;
         }
     }

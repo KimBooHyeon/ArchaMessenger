@@ -1,1 +1,3 @@
 /build
+# Intellij project files
+*.iml

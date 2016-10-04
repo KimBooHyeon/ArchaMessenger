@@ -74,6 +74,7 @@
             android:background="#2ecc71"
             android:padding="15dp">
             <Button
+                android:id="@+id/btn_close_drawer"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginBottom="15dp"
