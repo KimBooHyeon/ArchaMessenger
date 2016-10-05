@@ -16,10 +16,10 @@
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 20,
+                        "startOffset": 18,
                         "endLine": 7,
                         "endColumn": 12,
-                        "endOffset": 321
+                        "endOffset": 314
                     }
                 }
             },

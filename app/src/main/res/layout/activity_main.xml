@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout">
 
@@ -119,6 +120,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <LinearLayout
+                    android:id="@+id/layout_new_chat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -136,6 +138,7 @@
                         android:textSize="18dp"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout_archive"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -153,6 +156,7 @@
                         android:textSize="18dp"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout_contacts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -170,6 +174,7 @@
                         android:textSize="18dp"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout_invite_frien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -187,6 +192,7 @@
                         android:textSize="18dp"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout_settings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#2ecc71"
@@ -206,6 +212,7 @@
                         android:textColor="@color/white"/>
                 </LinearLayout>
                 <RelativeLayout
+                    android:id="@+id/layout_noti"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"

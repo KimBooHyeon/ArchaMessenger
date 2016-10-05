@@ -10,4 +10,8 @@
     <color name="green">#00FF00</color>
     <color name="blue">#0000FF</color>
     <color name="darkGray">#9E9E9E</color>
+    <color name="skyGray">#DDE7EB</color>
+    <color name="skyGreen">#1FDA80</color>
+    <color name="skyBlue">#3498DB</color>
+    <color name="darkBlue">#567493</color>
 </resources>

@@ -21,6 +21,8 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Drawer.ContactsActivity"/>
     </application>
 
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 </manifest>
