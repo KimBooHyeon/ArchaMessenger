@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.archa.archamessenger.Models.Contacts;
@@ -20,6 +21,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Recycl
 
     private List<Contacts> itemList;
     private Context mContext;
+    public View rootView;
 
     public ContactsAdapter(Context context, List<Contacts> itemList){
         this.mContext = context;
@@ -27,7 +29,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Recycl
     }
     @Override
     public RecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_contacs, null);
+        rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_contacs, null);
         RecyclerViewHolders viewHolders = new RecyclerViewHolders(rootView);
 
         return viewHolders;
@@ -52,10 +54,16 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Recycl
 
         public RecyclerViewHolders(View itemView) {
             super(itemView);
+            View layout_profile = itemView.findViewById(R.id.include_profile);
+            image_circle = (ImageView)layout_profile.findViewById(R.id.image_profile);
 
-            image_circle = (ImageView)itemView.findViewById(R.id.image_circle);
             personName = (TextView)itemView.findViewById(R.id.tv_userName);
             personPhone = (TextView)itemView.findViewById(R.id.tv_userNumber);
+
+            ImageView image_x = (ImageView)layout_profile.findViewById(R.id.image_x);
+            TextView tv_item_userName = (TextView)layout_profile.findViewById(R.id.tv_item_userName);
+            image_x.setVisibility(View.GONE);
+            tv_item_userName.setVisibility(View.GONE);
         }
     }
 }

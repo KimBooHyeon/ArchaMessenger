@@ -120,44 +120,46 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 ContactsContract.CommonDataKinds.Phone.NUMBER
         };
 
-        Cursor cursor = MainActivity.this.getContentResolver().query(
-                ContactsContract.Contacts.CONTENT_URI,
-                arrProjection,
-                ContactsContract.Contacts.HAS_PHONE_NUMBER + "=1",
-                null, null
-        );
-        while(cursor.moveToNext()){
-            String strContactID = cursor.getString(0);
-
-            Cursor cursor1 = MainActivity.this.getContentResolver().query(
-                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                    arrPhoneProjection,
-                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + strContactID,
+        if(arrProjection.length > 0){
+            Cursor cursor = MainActivity.this.getContentResolver().query(
+                    ContactsContract.Contacts.CONTENT_URI,
+                    arrProjection,
+                    ContactsContract.Contacts.HAS_PHONE_NUMBER + "=1",
                     null, null
             );
-            while(cursor1.moveToNext()){
-                list_sort.add(new Contacts(R.drawable.profile, cursor.getString(1), cursor1.getString(0)));
-            }
+            while(cursor.moveToNext()){
+                String strContactID = cursor.getString(0);
 
-            Map<String, Character> dup = new HashMap<>();
-            String hp;
-            for(int i = 0; i < list_sort.size(); i++){
-                hp = list_sort.get(i).getPersonName();
-                if(hp != null && dup.get(hp) == null){
-                    dup.put(hp, '1');
-                    i++;
-                } else{
-                    list_sort.remove(i);
+                Cursor cursor1 = MainActivity.this.getContentResolver().query(
+                        ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        arrPhoneProjection,
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + strContactID,
+                        null, null
+                );
+                while(cursor1.moveToNext()){
+                    list_sort.add(new Contacts(R.drawable.profile, cursor.getString(1), cursor1.getString(0)));
                 }
-            }
-            cursor1.close();
-        }
-        cursor.close();
 
-        for(int i = 0; i < list_sort.size(); i++){
-            list_contacts.add(list_sort.get(i));
+                Map<String, Character> dup = new HashMap<>();
+                String hp;
+                for(int i = 0; i < list_sort.size(); i++){
+                    hp = list_sort.get(i).getPersonName();
+                    if(hp != null && dup.get(hp) == null){
+                        dup.put(hp, '1');
+                        i++;
+                    } else{
+                        list_sort.remove(i);
+                    }
+                }
+                cursor1.close();
+            }
+            cursor.close();
+
+            for(int i = 0; i < list_sort.size(); i++){
+                list_contacts.add(list_sort.get(i));
+            }
+            Collections.sort(list_contacts, comparator);
         }
-        Collections.sort(list_contacts, comparator);
     }
     private final static Comparator<Contacts> comparator = new Comparator<Contacts>() {
         private final Collator collator = Collator.getInstance();

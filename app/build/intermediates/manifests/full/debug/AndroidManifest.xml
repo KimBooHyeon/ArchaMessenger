@@ -29,7 +29,9 @@
         <activity
             android:name="com.archa.archamessenger.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.archa.archamessenger.Drawer.ContactsActivity" />
+        <activity
+            android:name="com.archa.archamessenger.Drawer.ContactsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

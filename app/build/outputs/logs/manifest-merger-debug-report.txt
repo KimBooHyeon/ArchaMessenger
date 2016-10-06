@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:2:1-30:12
 	xmlns:android
 		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -14,7 +14,7 @@ ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:
 		INJECTED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:5:5-25:19
+ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Boo\Desktop\ArchaMessenger\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Boo\Desktop\ArchaMessenger\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Boo\Desktop\ArchaMessenger\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
@@ -69,13 +69,15 @@ ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:
 	android:name
 		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:22:13-41
 activity#com.archa.archamessenger.Drawer.ContactsActivity
-ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:24:9-60
+ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:24:9-26:71
+	android:theme
+		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:26:13-69
 	android:name
-		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:24:19-58
+		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:25:13-52
 uses-permission#android.permission.READ_CONTACTS
-ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:27:5-71
+ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:29:5-71
 	android:name
-		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:27:22-69
+		ADDED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml:29:22-69
 uses-sdk
 INJECTED from C:\Users\Boo\Desktop\ArchaMessenger\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Boo\Desktop\ArchaMessenger\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
