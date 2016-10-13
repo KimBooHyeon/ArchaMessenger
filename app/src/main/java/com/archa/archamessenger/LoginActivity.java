@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -13,7 +15,7 @@ import android.widget.RelativeLayout;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btn_login, btn_signUp, btn_signUp_join, btn_confirm;
+    private Button btn_login, btn_signUp, btn_signUp_join, btn_signUp_cancel, btn_confirm;
     private RelativeLayout layout_login;
     private LinearLayout layout_signUp;
 
@@ -29,10 +31,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btn_login = (Button)findViewById(R.id.btn_login);
         btn_signUp = (Button)findViewById(R.id.btn_signUp);
         btn_signUp_join = (Button)findViewById(R.id.btn_signUp_join);
+        btn_signUp_cancel = (Button)findViewById(R.id.btn_signUp_cancel);
         btn_confirm = (Button)findViewById(R.id.btn_confirm);
         btn_login.setOnClickListener(this);
         btn_signUp.setOnClickListener(this);
         btn_signUp_join.setOnClickListener(this);
+        btn_signUp_cancel.setOnClickListener(this);
         btn_confirm.setOnClickListener(this);
 
         layout_login = (RelativeLayout)findViewById(R.id.layout_login);
@@ -55,6 +59,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 layout_login.setVisibility(View.VISIBLE);
                 layout_signUp.setVisibility(View.GONE);
                 break;
+            case R.id.btn_signUp_cancel:
+                layout_signUp.setVisibility(View.GONE);
+                layout_login.setVisibility(View.VISIBLE);
+                break;
             case R.id.btn_confirm:
                 AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
                 alert.setMessage("1234");
@@ -75,5 +83,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                        }).show();
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+            if(layout_signUp.getVisibility() == View.VISIBLE){
+                layout_signUp.setVisibility(View.GONE);
+                layout_login.setVisibility(View.VISIBLE);
+            } else if(layout_login.getVisibility() == View.VISIBLE){
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
