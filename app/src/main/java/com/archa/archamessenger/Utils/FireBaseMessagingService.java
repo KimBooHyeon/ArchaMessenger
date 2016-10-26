@@ -26,9 +26,10 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
         //추가한것
-        sendPushNotification(remoteMessage.getData().get("message"));
+        sendPushNotification(remoteMessage);
     }
-    private void sendPushNotification(String message) {
+    private void sendPushNotification(RemoteMessage remoteMessage) {
+        String message = remoteMessage.getData().get("message");
         System.out.println("received message : " + message);
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
