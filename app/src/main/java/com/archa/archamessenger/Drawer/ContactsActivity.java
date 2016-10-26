@@ -34,8 +34,9 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_contacts);
+        setContentView(R.layout.activity_contacts);
 
+        mainActivity = new MainActivity();
         init();
 
         layoutManager = new LinearLayoutManager(ContactsActivity.this);
@@ -45,7 +46,6 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
         recycler_contacts.setAdapter(adapter_contacts);
 
         adapter_contacts.notifyDataSetChanged();
-//        getContactsList();
     }
 
     public void init(){

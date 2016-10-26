@@ -1,7 +1,10 @@
 package com.archa.archamessenger;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +14,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -22,9 +29,42 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.activity_login);
 
+
+//        if(checkPermission())
+        checkPermission();
         init();
+        FirebaseMessaging.getInstance().subscribeToTopic("notice");
+        Log.d("Login", FirebaseInstanceId.getInstance().getToken());
+        Log.d("Login", ""+FirebaseInstanceId.getInstance().getToken().length());
+//        else
+//            Toast.makeText(LoginActivity.this, "권한 허용하셔야 사용가능합니다.", Toast.LENGTH_SHORT);
+    }
+    private boolean checkPermission() {
+        boolean check ;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)) {
+                    // Explain to the user why we need to write the permission.
+                    Toast.makeText(this, "권한설정에 동의하셔야 친구목록을 불러올 수 있습니다.", Toast.LENGTH_SHORT).show();
+                }
+
+                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, 0);
+
+                // MY_PERMISSION_REQUEST_STORAGE is an
+                // app-defined int constant
+                check = false;
+            } else {
+                // 다음 부분은 항상 허용일 경우에 해당이 됩니다.
+                check = true;
+            }
+        }
+        else    check = true;
+
+        return check;
     }
 
     public void init(){

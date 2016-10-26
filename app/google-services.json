@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "378079172871",
+    "firebase_url": "https://archamessenger.firebaseio.com",
+    "project_id": "archamessenger",
+    "storage_bucket": "archamessenger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378079172871:android:881f21f851f87bf9",
+        "android_client_info": {
+          "package_name": "com.archa.archamessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378079172871-d58fim9kmdglg1hdmlm1cu5hu3rtham3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.archa.archamessenger",
+            "certificate_hash": "F2A771BB370A98CB7B27BC44A122B21FD085B798"
+          }
+        },
+        {
+          "client_id": "378079172871-tuopl8g794eslmgnch86q6rbegch0hrs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [{"current_key":"AIzaSyCDl8WubZINT0ZPLbewPes2Wi1N3acmeDs"}],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378079172871-tuopl8g794eslmgnch86q6rbegch0hrs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

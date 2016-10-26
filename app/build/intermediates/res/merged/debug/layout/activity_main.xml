@@ -9,11 +9,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
         <Button
             android:id="@+id/btn_menu"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="68px"
+            android:layout_height="68px"
             android:layout_margin="10dp"
             android:background="@mipmap/menu"/>
         <LinearLayout
@@ -62,16 +64,18 @@
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_below="@+id/layout_main">
-            <include layout="@layout/content_main"/>
+            <include
+                android:id="@+id/include_chats"
+                layout="@layout/content_main"/>
         </LinearLayout>
-        <android.support.design.widget.FloatingActionButton
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="115px"
+            android:layout_height="115px"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_dialog_email" />
+            android:src="@drawable/button_plus" />
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/layout_navigation"

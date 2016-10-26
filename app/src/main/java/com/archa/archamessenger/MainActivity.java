@@ -1,20 +1,31 @@
 package com.archa.archamessenger;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.archa.archamessenger.Adapters.ChatsAdapter;
 import com.archa.archamessenger.Drawer.ContactsActivity;
+import com.archa.archamessenger.Models.Chats;
 import com.archa.archamessenger.Models.Contacts;
 
 import java.text.Collator;
@@ -26,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
-
+    String TAG = "MainActivity";
 
     private DrawerLayout dlDrawer;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -34,8 +45,11 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private LinearLayout layout_contacts;
 
     private Button btn_menu, btn_close_drawer;
+    private RecyclerView recycler_chats;
 
     public static List<Contacts> list_contacts = new ArrayList<>();
+    public List<Chats> list_chats = new ArrayList<>();
+    public ChatsAdapter adapter_chats;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +75,13 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
     public void init(){
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        ImageView fab = (ImageView)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Snackbar.make(v, "Replace with your won action", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                list_chats.add(new Chats(R.drawable.profile, "타이틀", "마지막 채팅내용", "AM 12:00", true));
+                adapter_chats.notifyDataSetChanged();
             }
         });
 
@@ -78,8 +93,16 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         layout_contacts = (LinearLayout)findViewById(R.id.layout_contacts);
         layout_contacts.setOnClickListener(this);
 
-        if(list_contacts.size() == 0)
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        View view = findViewById(R.id.include_chats);
+        recycler_chats = (RecyclerView)view.findViewById(R.id.recycler_chats);
+        recycler_chats.setLayoutManager(layoutManager);
+        adapter_chats = new ChatsAdapter(MainActivity.this, list_chats);
+        recycler_chats.setAdapter(adapter_chats);
+
+        if(list_contacts.size() <= 0)
             getContactsList();
+//        checkPermission();
     }
 
     @Override
@@ -137,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                         null, null
                 );
                 while(cursor1.moveToNext()){
+                    Log.d(TAG, cursor1.getString(0));
                     list_sort.add(new Contacts(R.drawable.profile, cursor.getString(1), cursor1.getString(0)));
                 }
 
@@ -168,4 +192,6 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             return collator.compare(object1.getPersonName(), object2.getPersonName());
         }
     };
+
+
 }
