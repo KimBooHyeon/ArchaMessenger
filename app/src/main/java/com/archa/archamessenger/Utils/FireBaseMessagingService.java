@@ -29,6 +29,7 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
         sendPushNotification(remoteMessage);
     }
     private void sendPushNotification(RemoteMessage remoteMessage) {
+        String title = remoteMessage.getData().get("title");
         String message = remoteMessage.getData().get("message");
         System.out.println("received message : " + message);
         Intent intent = new Intent(this, LoginActivity.class);
@@ -39,7 +40,7 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.icon).setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.icon) )
-                .setContentTitle("Push Title ")
+                .setContentTitle(title)
                 .setContentText(message)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri).setLights(000000255,500,2000)
